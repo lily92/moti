@@ -1,0 +1,69 @@
+<template>
+	<view class="padding-lf30">
+		<view class="flex flex-al-center flex-just-between item">
+			<view class="img">
+				<image src="../../static/images/icon-fenlei.jpg" mode="widthFix" class="w100"></image>
+			</view>
+			<view class="con">
+				<view class="fon28">
+					<text>尼古拉斯赵四</text>
+					<text class="color9">（李柒凛）</text>
+				</view>
+				<view class=" color9">
+					ID :158461
+				</view>
+				<view class="color9">
+					TEL :15226530768
+				</view>
+			</view>
+			<view class="time">
+				<view class="fon22">
+					加入时间
+				</view>
+				<view class="fon28">
+					2018-12-03 
+				</view>
+			</view>
+
+		</view>
+	</view>
+</template>
+
+<script>
+	export default {
+		props: {
+			newsItem: {
+				type: Object,
+				default: function(e) {
+					return {}
+				}
+			}
+		},
+		methods: {
+			click() {
+				this.$emit('click');
+			},
+
+		}
+	}
+</script>
+
+<style lang="scss" scoped>
+	.item {
+		padding: 40rpx 0;
+		border-bottom: 1px solid #e4e4e4;
+	
+	}
+
+	.img {
+		width: 100rpx;
+	}
+
+	.time {
+		width: 166rpx;
+	}
+
+	.con {
+		width: calc(100% - 300rpx);
+	}
+</style>

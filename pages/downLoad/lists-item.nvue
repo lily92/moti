@@ -1,0 +1,53 @@
+<template>
+	<view class="padding-lf30 bgf ">
+		<view class="flex  flex-just-between flex-al-center list-items">
+			<view class="down-icon">
+				<image :src="newsItem.icon" mode="widthFix" class="w100"></image>
+			</view>
+			<view class="down-con">
+				<view class="fon28">
+					英语短剧形状会在哪个.doc
+				</view>
+				<view class="color9">
+					2019-10-15 20:30
+				</view>
+			</view>
+			<view class="">
+				<label>
+					<checkbox :value="0"  color="#eabd7e"/><text></text>
+				</label>
+			</view>
+		</view>
+		
+	</view>
+</template>
+
+<script>
+	export default {
+		props: {
+			newsItem: {
+				type: Object,
+				default: function(e) {
+					return {}
+				}
+			}
+		},
+		methods: {
+			click() {
+				this.$emit('click');
+			},
+
+		}
+	}
+</script>
+
+<style lang="scss" scoped>
+	.down-icon {
+		width: 40rpx;
+	}
+
+	.down-con {
+		width: 530rpx;
+	}
+	.list-items{ border-bottom:1px solid #e4e4e4; padding: 30rpx 0;}
+</style>

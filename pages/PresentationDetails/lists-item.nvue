@@ -1,0 +1,43 @@
+<template>
+	<view class="padding-lf30 list-item">
+	<view class="flex  flex-just-between flex-al-center">
+		<view class="time">
+			<view class=" fon28 order-num">
+				中国银行（5455）
+			</view>
+			<view class=" color9">
+				2019-05-15 12:20
+			</view>
+		</view>
+		<view class="content">
+			<view class="fon32 color-org">
+				+5000
+			</view>
+		</view>
+	</view>
+	</view>
+</template>
+
+<script>
+	export default {
+		props: {
+			newsItem: {
+				type: Object,
+				default: function(e) {
+					return {}
+				}
+			}
+		},
+		methods: {
+			click() {
+				this.$emit('click');
+			},
+
+		}
+	}
+</script>
+
+<style lang="scss" scoped>
+.list-item{ border-bottom: 1px solid #e4e4e4; padding: 40rpx 0; margin: 0 30rpx;}
+.order-num{ padding: 10rpx 0;}
+</style>

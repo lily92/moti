@@ -1,0 +1,260 @@
+{
+	"pages": [
+		//pages数组中第一项表示应用启动页
+		{
+		    "path" : "pages/index/index",
+		    "style" : {
+				"navigationBarTitleText": "首页"
+				
+			}
+		},
+		{
+			"path": "pages/myInfo/myInfo",
+			"style": {
+				"navigationBarTitleText": "我的消息",
+				"enablePullDownRefresh": true,
+				"onReachBottomDistance": 50,
+				"navigationBarBackgroundColor": "#F9F9F9"
+			}
+		}
+	    ,{
+            "path" : "pages/my/my",
+            "style" : {
+				"navigationBarTitleText": "我的",
+				"navigationBarBackgroundColor": "#000",
+				"navigationBarTextStyle": "white",
+				"navigationStyle":"custom"
+				
+			}
+        }
+        ,{
+            "path" : "pages/brand/brand",
+            "style" : {
+				"navigationBarTitleText": "品牌"	
+			}
+        }
+        
+        ,{
+            "path" : "pages/classification/classification",
+           "style" : {
+           	"navigationBarTitleText": "分类",
+			"navigationBarBackgroundColor": "#F9F9F9"
+			
+           }
+        }
+        ,{
+            "path" : "pages/otherAwards/otherAwards",
+           "style" : {
+           		"navigationBarTitleText": "其他奖励",
+				"enablePullDownRefresh": true
+           }
+        }
+        ,{
+            "path" : "pages/applySuccess/applySuccess",
+            "style" : {
+					"navigationBarTitleText": "提交成功"
+			}
+        }
+        ,{
+            "path" : "pages/applyForAgent/applyForAgent",
+           "style" : {
+           		"navigationBarTitleText": "申请代理"
+           }
+        }
+        ,{
+            "path" : "pages/myTeam/myTeam",
+           "style" : {
+           	"navigationBarTitleText": "我的团队"
+           
+           }
+        }
+        ,{
+            "path" : "pages/returnBonus/returnBonus",
+            "style" : {
+				 	"navigationBarTitleText": "返单奖励"
+			}
+        }
+        ,{
+            "path" : "pages/developmentAward/developmentAward",
+            "style" : {
+				 	"navigationBarTitleText": "开发奖励",
+					"enablePullDownRefresh": true	
+			}
+        }
+        ,{
+            "path" : "pages/PresentationDetails/PresentationDetails",
+            "style" : {
+				"navigationBarTitleText": "提现明细"
+			}
+        }
+        ,{
+            "path" : "pages/cashWithdrawal/cashWithdrawal",
+            "style" : {
+				"navigationBarTitleText": "提现",
+				"navigationBarBackgroundColor": "#F9F9F9"
+			}
+        }
+        ,{
+            "path" : "pages/paySucess/paySucess",
+            "style" : {
+				"navigationBarTitleText": "收银台"
+			}
+        }
+        ,{
+            "path" : "pages/personalData/personalData",
+            "style" : {
+				"navigationBarTitleText": "个人资料"
+			}
+        }
+        ,{
+            "path" : "pages/bindWechat/bindWechat",
+            "style" : {
+				"navigationBarTitleText": "绑定微信"
+			}
+        },{
+            "path" : "pages/setting/bindPhone",
+            "style" : {
+				"navigationBarTitleText": "绑定手机"
+			}
+        },{
+            "path" : "pages/address/addAdress",
+            "style" : {
+				"navigationBarTitleText": "添加新地址"
+			}
+        }
+        ,{
+            "path" : "pages/address/selectAdress",
+            "style" : {
+				"navigationBarTitleText": "选择地址"
+			}
+        }
+        ,{
+            "path" : "pages/rankingList/rankingList",
+            "style" : {
+				"navigationBarTitleText": "排名",
+				"navigationBarBackgroundColor": "#f7b364",
+				"navigationBarTextStyle": "black"
+			}
+			
+        },{
+            "path" : "pages/myAccount/myAccount",
+            "style" : {
+				"navigationBarTitleText": "我的账户",
+				"navigationBarBackgroundColor": "#F9F9F9"
+			}
+			
+        }
+        ,{
+            "path" : "pages/menberOrder/menberOrder",
+            "style" : {
+				"navigationBarTitleText": "会员订单"
+				
+			}
+        }
+        ,{
+            "path" : "pages/creatOrder/creatOrder",
+            "style" : {
+				"navigationBarTitleText": "创建订单",
+				"navigationBarBackgroundColor": "#F9F9F9"
+			}
+        }
+        ,{
+            "path" : "pages/orderDetails/orderDetails",
+            "style" : {
+				"navigationBarTitleText": "订单详情",
+				"navigationBarBackgroundColor": "#F9F9F9"
+			}
+        }
+        ,{
+            "path" : "pages/myOrder/myOrder",
+            "style" : {
+				"navigationBarTitleText": "我的订单"
+				
+			}
+        }
+        ,{
+            "path" : "pages/suitOrder/suitOrder",
+            "style" : {
+				"navigationBarTitleText": "套装订单"
+				
+			}
+        }
+        ,{
+            "path" : "pages/shopCart/shopCart",
+            "style" : {
+				"navigationBarTitleText": "购物车"
+			}
+        }
+        ,{
+            "path" : "pages/buyingSuits/buyingSuits",
+            "style" : {
+				"navigationBarTitleText": "购买套装",
+				"navigationBarBackgroundColor": "#F9F9F9"
+				
+			}
+        }
+        ,{
+            "path" : "pages/recommDcode/recommDcode",
+            "style" : {
+				"navigationBarTitleText": "推荐码",
+				"navigationBarBackgroundColor": "#ffe6bb"
+			}
+        }
+        ,{
+            "path" : "pages/downLoad/downLoad",
+            "style" : {
+				"navigationBarTitleText": "下载内容"
+			}
+        }
+    ],
+	"globalStyle": {
+		"backgroundTextStyle": "dark",
+		"navigationBarBackgroundColor": "#fff",
+		"navigationBarTitleText": "魔体",
+		"navigationBarTextStyle": "black",
+		"backgroundColor": "#fafafa",
+		"backgroundColorTop": "#fafafa",
+		"backgroundColorBottom": "#fafafa"
+		
+		
+	},
+	"tabBar": { //底部菜单栏
+		"color": "#cbcbcb",
+		"selectedColor": "#dca360",
+		"backgroundColor": "#FFFFFF",
+		"list": [{
+				"pagePath": "pages/index/index",
+				"text": "首页",
+				"iconPath": "static/images/common/icon-home.png",
+				"selectedIconPath":"static/images/common/icon-home-active.png"
+			},
+			{
+				"pagePath": "pages/brand/brand",
+				"text": "品牌",
+				"iconPath": "static/images/common/icon-brand-0.png",
+				"selectedIconPath": "static/images/common/icon-brand.png"
+			},
+			{
+				"pagePath": "pages/classification/classification",
+				"text": "商品",
+				"iconPath": "static/images/common/icon-product.png",
+				"selectedIconPath": "static/images/common/icon-product-active.png"
+			},
+			{
+				"pagePath": "pages/my/my",
+				"text": "我的",
+				"iconPath": "./static/images/common/icon-my.png",
+				"selectedIconPath": "static/images/common/icon-my-active.png"
+			}
+
+		]
+	},
+	"condition": { //模式配置，仅开发期间生效
+		"current": 0, //当前激活的模式(list 的索引项)
+		"list": [{
+			"name": "", //模式名称
+			"path": "", //启动页面，必选
+			"query": "" //启动参数，在页面的onLoad函数里面得到
+		}]
+	}
+}
