@@ -13,28 +13,27 @@
 		<!-- QQ multipleSlots=true bug -->
 		<!-- #ifndef MP-QQ -->
 		<uni-list class="listview" :enableBackToTop="true" :scroll-y="true" @scrolltolower="loadMore()">
-            <uni-refresh class="refresh" @refresh="onrefresh" @pullingdown="onpullingdown" :display="refreshing ? 'show' : 'hide'">
-                <div class="refresh-view">
-                    <image class="refresh-icon" :src="refreshIcon" :style="{width: (refreshing || pulling) ? 0: '32px'}"
-                        :class="{'refresh-icon-active': refreshFlag}"></image>
-                    <uni-load-more v-if="refreshing" class="loading-icon" status="loading" :contentText="loadingMoreText"></uni-load-more>
-                    <text class="loading-text">{{refreshText}}</text>
-                </div>
-            </uni-refresh>
-            <uni-cell v-for="(item, index) in dataList" :key="item.od_id">
-                <news-item :newsItem="item" @setState="setState" @goPay="goPay"></news-item>
-            </uni-cell>
-            <uni-cell v-if="isLoading || dataList.length > 4">
-                <view class="loading-more">
-                    <text class="loading-more-text">{{loadingText}}</text>
-                </view>
-            </uni-cell>
-            <uni-cell v-else>
-                <view class="loading-more">
-                   <tui-nomore :visible="pullUpOn"></tui-nomore>
-                </view>
-            </uni-cell>
-        </uni-list>
+			<uni-refresh class="refresh" @refresh="onrefresh" @pullingdown="onpullingdown" :display="refreshing ? 'show' : 'hide'">
+				<div class="refresh-view">
+					<image class="refresh-icon" :src="refreshIcon" :style="{width: (refreshing || pulling) ? 0: '32px'}" :class="{'refresh-icon-active': refreshFlag}"></image>
+					<uni-load-more v-if="refreshing" class="loading-icon" status="loading" :contentText="loadingMoreText"></uni-load-more>
+					<text class="loading-text">{{refreshText}}</text>
+				</div>
+			</uni-refresh>
+			<uni-cell v-for="(item, index) in dataList" :key="item.od_id">
+				<news-item :newsItem="item" @setState="setState" @goPay="goPay" @clipboard='clipboard'></news-item>
+			</uni-cell>
+			<uni-cell v-if="isLoading || dataList.length > 4">
+				<view class="loading-more">
+					<text class="loading-more-text">{{loadingText}}</text>
+				</view>
+			</uni-cell>
+			<uni-cell v-else>
+				<view class="loading-more">
+					<tui-nomore :visible="pullUpOn"></tui-nomore>
+				</view>
+			</uni-cell>
+		</uni-list>
 		<!-- #endif -->
 		<no-data class="no-data" v-if="isNoData" @retry="loadMore"></no-data>
 	</view>
@@ -44,14 +43,15 @@
 	import {
 		friendlyDate
 	} from '@/common/util.js';
-var wx = require('jweixin-module') 
+	var wx = require('jweixin-module')
 	import uniList from '@/components/list/uni-list.vue';
 	import uniCell from '@/components/list/uni-cell.vue';
 	import uniRefresh from '@/components/list/uni-refresh.vue';
 	import uniLoadMore from '@/components/list/uni-load-more.vue';
 	import noData from '@/components/list/nodata.nvue';
 	import newsItem from './lists-item.nvue';
-import tuiNomore from "@/components/nomore/nomore"
+	import tuiNomore from "@/components/nomore/nomore";
+	const thorui = require("@/components/utils/clipboard.thorui.js")
 	export default {
 		components: {
 			uniList,
@@ -70,77 +70,68 @@ import tuiNomore from "@/components/nomore/nomore"
 		},
 		data() {
 			return {
-				dataList: [
-					{
-						"od_orderid":'20180918124523',
-						"od_addtime_str":"2019-05-10 ",
-						"od_wechat":"20180918124523",
-						"oddtinfo":[
-							{
-								"oddt_pic_link":"",
-								"oddt_proname":"身材管理魔体仪",
-								"oddt_qty":15,
-								"oddt_dlprice":20,
-								"oddt_pricetotal":10,
-								"oddt_pic_link":"../../static/images/icon-fenlei.jpg"
-							}
-						],
-						"od_state":0,
-						"od_type":0,
-						od_state_str:"订单待处理"
+				dataList: [{
+						"od_orderid": '20180918124523',
+						"od_addtime_str": "2019-05-10 ",
+						"od_wechat": "20180918124523",
+						"oddtinfo": [{
+							"oddt_pic_link": "",
+							"oddt_proname": "身材管理魔体仪",
+							"oddt_qty": 15,
+							"oddt_dlprice": 20,
+							"oddt_pricetotal": 10,
+							"oddt_pic_link": "../../static/images/icon-fenlei.jpg"
+						}],
+						"od_state": 0,
+						"od_type": 0,
+						od_state_str: "订单待处理"
 					},
 					{
-						"od_orderid":'20180918124523',
-						"od_addtime_str":"2019-05-10",
-						"od_wechat":"20180918124523",
-						"oddtinfo":[
-							{
-								"oddt_pic_link":"",
-								"oddt_proname":"身材管理魔体仪",
-								"oddt_qty":15,
-								"oddt_dlprice":20,
-								"oddt_pricetotal":10,
-								"oddt_pic_link":"../../static/images/icon-fenlei.jpg"
-							}
-						],
-						"od_state":1,
-						"od_type":0,
-						od_state_str:"订单已处理"
+						"od_orderid": '20180918124523',
+						"od_addtime_str": "2019-05-10",
+						"od_wechat": "20180918124523",
+						"oddtinfo": [{
+							"oddt_pic_link": "",
+							"oddt_proname": "身材管理魔体仪",
+							"oddt_qty": 15,
+							"oddt_dlprice": 20,
+							"oddt_pricetotal": 10,
+							"oddt_pic_link": "../../static/images/icon-fenlei.jpg"
+						}],
+						"od_state": 1,
+						"od_type": 0,
+						od_state_str: "订单已处理"
 					},
 					{
-						"od_orderid":'20180918124523',
-						"od_addtime_str":"2019-05-10",
-						"od_wechat":"20180918124523",
-						"oddtinfo":[
-							{
-								"oddt_pic_link":"",
-								"oddt_proname":"身材管理魔体仪",
-								"oddt_qty":15,
-								"oddt_dlprice":20,
-								"oddt_pricetotal":10,
-								"oddt_pic_link":"../../static/images/icon-fenlei.jpg"
-							}
-						],
-						"od_state":3,
-						"od_type":0,
-						od_state_str:"订单已取消"
-					},{
-						"od_orderid":'20180918124523',
-						"od_addtime_str":"2019-05-10",
-						"od_wechat":"20180918124523",
-						"oddtinfo":[
-							{
-								"oddt_pic_link":"",
-								"oddt_proname":"身材管理魔体仪",
-								"oddt_qty":15,
-								"oddt_dlprice":20,
-								"oddt_pricetotal":10,
-								"oddt_pic_link":"../../static/images/icon-fenlei.jpg"
-							}
-						],
-						"od_state":3,
-						"od_type":0,
-						od_state_str:"订单已取消"
+						"od_orderid": '20180918124523',
+						"od_addtime_str": "2019-05-10",
+						"od_wechat": "20180918124523",
+						"oddtinfo": [{
+							"oddt_pic_link": "",
+							"oddt_proname": "身材管理魔体仪",
+							"oddt_qty": 15,
+							"oddt_dlprice": 20,
+							"oddt_pricetotal": 10,
+							"oddt_pic_link": "../../static/images/icon-fenlei.jpg"
+						}],
+						"od_state": 3,
+						"od_type": 0,
+						od_state_str: "订单已取消"
+					}, {
+						"od_orderid": '20180918124523',
+						"od_addtime_str": "2019-05-10",
+						"od_wechat": "20180918124523",
+						"oddtinfo": [{
+							"oddt_pic_link": "",
+							"oddt_proname": "身材管理魔体仪",
+							"oddt_qty": 15,
+							"oddt_dlprice": 20,
+							"oddt_pricetotal": 10,
+							"oddt_pic_link": "../../static/images/icon-fenlei.jpg"
+						}],
+						"od_state": 3,
+						"od_type": 0,
+						od_state_str: "订单已取消"
 					}
 				],
 				navigateFlag: false,
@@ -159,187 +150,198 @@ import tuiNomore from "@/components/nomore/nomore"
 					contentnomore: ''
 				},
 				refreshIcon: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAMAAABg3Am1AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAB5QTFRFcHBw3Nzct7e39vb2ycnJioqK7e3tpqam29vb////D8oK7wAAAAp0Uk5T////////////ALLMLM8AAABxSURBVHja7JVBDoAgDASrjqj//7CJBi90iyYeOHTPMwmFZrHjYyyFYYUy1bwUZqtJIYVxhf1a6u0R7iUvWsCcrEtwJHp8MwMdvh2amHduiZD3rpWId9+BgPd7Cc2LIkPyqvlQvKxKBJ//Qwq/CacAAwDUv0a0YuKhzgAAAABJRU5ErkJggg=="
-				
-				,pullUpOn: true,
+
+					,
+				pullUpOn: true,
 				pageIndex: 0,
 			}
 		},
 		created() {
 			this.pullTimer = null;
-		
 			console.log(this.typeid)
 		},
 		methods: {
+			clipboard(data) {
+				thorui.getClipboardData(data, (res) => {
+					// #ifdef H5
+					if (res) {
+						this.tui.toast("复制成功")
+					} else {
+						this.tui.toast("复制失败")
+					}
+					// #endif
+				})
+			},
 			// 提货订单
-			loadData:function(refresh){
-							var _this = this
-							if(_this.isLoading==true){
-								return false
-							}
-							_this.isLoading=true;
-							_this.isNoData = false;//重置
-							var param={
-								page:_this.pageIndex+1,//页码			
-								currentTab:_this.typeid,//tab 索引				
-							}
-							      _this.tui.request( '/product/ordersList',param).then(function(data){
-							       _this.isLoading=false;
-									if(data.stat == 1){
-									
-										if(data.data.more){//还有更多 但是未加载到数据
-											_this.isNoData = (data.data.list.length <= 0);
-										}
-												
-									_this.pageIndex = _this.isNoData?data.data.curpage-1:data.data.curpage//重新加载
-										
-										if(!data.data.more&&_this.pageIndex>1){
-											_this.tui.toast("已没有更多数据")//第一页为空 
-										}	
-											_this.dataList=_this.dataList?_this.dataList.concat(data.data.list):data.data.list;
-			
-							        }
-									if (refresh) {
-										_this.refreshing = false;
-										_this.refreshFlag = false;
-										_this.refreshText = "已刷新";
-										if (_this.pullTimer) {
-											clearTimeout(_this.pullTimer);
-										}
-										_this.pullTimer = setTimeout(() => {
-											_this.pulling = false;
-										}, 1000);
+			loadData: function(refresh) {
+				var _this = this
+				if (_this.isLoading == true) {
+					return false
+				}
+				_this.isLoading = true;
+				_this.isNoData = false; //重置
+				var param = {
+					page: _this.pageIndex + 1, //页码			
+					currentTab: _this.typeid, //tab 索引				
+				}
+				_this.tui.request('/product/ordersList', param).then(function(data) {
+					_this.isLoading = false;
+					if (data.stat == 1) {
+
+						if (data.data.more) { //还有更多 但是未加载到数据
+							_this.isNoData = (data.data.list.length <= 0);
+						}
+
+						_this.pageIndex = _this.isNoData ? data.data.curpage - 1 : data.data.curpage //重新加载
+
+						if (!data.data.more && _this.pageIndex > 1) {
+							_this.tui.toast("已没有更多数据") //第一页为空 
+						}
+						_this.dataList = _this.dataList ? _this.dataList.concat(data.data.list) : data.data.list;
+
+					}
+					if (refresh) {
+						_this.refreshing = false;
+						_this.refreshFlag = false;
+						_this.refreshText = "已刷新";
+						if (_this.pullTimer) {
+							clearTimeout(_this.pullTimer);
+						}
+						_this.pullTimer = setTimeout(() => {
+							_this.pulling = false;
+						}, 1000);
+					}
+				});
+			},
+			setState(index, state) {
+				var _this = this;
+				var title = "";
+				var content = "";
+				if (state == 9) {
+					title = "取消订单";
+					content = "是否确认取消订单";
+				} else if (state == 8) {
+					title = "确认收货";
+					content = "是否确认收货";
+				}
+				if (title != "" && content != "") {
+					uni.showModal({
+						title: title,
+						content: content,
+						success: function(res) {
+							if (res.confirm) {
+
+
+								var param = {
+									od_id: index,
+									od_state: state,
+								}
+								_this.tui.request('/Orders/setOrderState', param).then(function(data) {
+
+									if (data.stat == 1) {
+										_this.dataList = [];
+										_this.pageIndex = 0
+										_this.loadData()
 									}
-							      });
-						},
-						setState(index,state){
-								var _this = this;
-								var title="";
-								var content="";
-								if(state==9){
-									title="取消订单";
-									content="是否确认取消订单";
-								}else if(state==8){
-									title="确认收货";
-									content="是否确认收货";
-								}
-								if(title!=""&&content!=""){
-									uni.showModal({
-									    title: title,
-									    content: content,
-									    success: function (res) {
-									        if (res.confirm) {
-												
-									          
-									           var param={
-									           	od_id:index,
-									           	od_state:state,
-									           }
-									                 _this.tui.request( '/Orders/setOrderState',param).then(function(data){
-									                 
-									           		if(data.stat == 1){
-												_this.dataList=[];
-											      		_this.pageIndex=0
-											      		_this.loadData()
-									                   }
-									                 });
-									        } else if (res.cancel) {
-									            console.log('用户点击取消');
-									        }
-									    }
-									});
-								}
-						},
-						goPay(od_id){
-							var _this = this
-							var param={
-								od_id : od_id,
+								});
+							} else if (res.cancel) {
+								console.log('用户点击取消');
 							}
-							//获取支付数据
-							      _this.tui.request( '/product/payorder',param).then(function(data){
-							       _this.loadding=false;
-									if(data.stat == 1){
-									wx.config({//H5微信支付专用
-									            debug: false,
-									            appId: data.data.signPackage.appId,
-									            timestamp: data.data.signPackage.timestamp,
-									            nonceStr: data.data.signPackage.nonceStr,
-									            signature: data.data.signPackage.signature,
-									
-									            jsApiList: [
-									              "chooseWXPay"
-									              // 所有要调用的 API 都要加到这个列表中
-									            ]
-									 });
-									
-									_this.onSave(data.data.jsparame);
-									//uni.setStorageSync(_this.od_id+'pay',data.data)
-								  }else if(data.stat == 0){
-									  
-								//	  setTimeout(function (){
-									//  	uni.navigateBack();
-									//  }, 500)
-									  
-								  }
-								   });
+						}
+					});
+				}
+			},
+			goPay(od_id) {
+				var _this = this
+				var param = {
+					od_id: od_id,
+				}
+				//获取支付数据
+				_this.tui.request('/product/payorder', param).then(function(data) {
+					_this.loadding = false;
+					if (data.stat == 1) {
+						wx.config({ //H5微信支付专用
+							debug: false,
+							appId: data.data.signPackage.appId,
+							timestamp: data.data.signPackage.timestamp,
+							nonceStr: data.data.signPackage.nonceStr,
+							signature: data.data.signPackage.signature,
+
+							jsApiList: [
+								"chooseWXPay"
+								// 所有要调用的 API 都要加到这个列表中
+							]
+						});
+
+						_this.onSave(data.data.jsparame);
+						//uni.setStorageSync(_this.od_id+'pay',data.data)
+					} else if (data.stat == 0) {
+
+						//	  setTimeout(function (){
+						//  	uni.navigateBack();
+						//  }, 500)
+
+					}
+				});
+			},
+			onSave(data) {
+				var _this = this;
+				console.log(_this);
+				wx.ready(function() { //H5微信支付专用
+					wx.chooseWXPay({
+						timestamp: data.timeStamp,
+						nonceStr: data.nonceStr,
+						package: data.package,
+						signType: data.signType,
+						paySign: data.paySign,
+						success: function(res) {
+							_this.tui.toast("支付成功，我们将尽快为您发货。")
+							setTimeout(function() {
+								uni.redirectTo({
+									url: getApp().globalData.ordersPage + '?tabIndex=2'
+								})
+								// 	window.location = _this.tui.interfaceUrl() + "/#//pages/extend-view/mall-extend/myOrder/myOrder?currentTab=2";           
+							}, 500)
 						},
-						onSave(data) {
-							var _this = this;
-							console.log(_this);
-							wx.ready(function() {//H5微信支付专用
-							        wx.chooseWXPay({
-							          timestamp: data.timeStamp,
-							          nonceStr: data.nonceStr,
-							          package: data.package,
-							          signType: data.signType,
-							          paySign: data.paySign,
-							          success: function(res) {
-							           _this.tui.toast("支付成功，我们将尽快为您发货。")
-							           setTimeout(function() {
-							           	uni.redirectTo({
-							           		url: getApp().globalData.ordersPage + '?tabIndex=2'
-							           	})
-							           	// 	window.location = _this.tui.interfaceUrl() + "/#//pages/extend-view/mall-extend/myOrder/myOrder?currentTab=2";           
-							           }, 500)
-							          },
-							          cancel: function(res) {
-							        _this.tui.toast("用户取消支付。")
-							            .then(() => {});
-							          },
-							          fail: function(res) {
+						cancel: function(res) {
+							_this.tui.toast("用户取消支付。")
+								.then(() => {});
+						},
+						fail: function(res) {
 							_this.tui.toast("支付失败，请重新下单。")
-							           .then(() => {});
-							          }
-							        });
-							      });
-							// 仅作为示例，非真实参数信息。
-							// uni.requestPayment({
-							// 	provider: 'wxpay',
-							// 	timeStamp: data.timeStamp,
-							// 	nonceStr: data.nonceStr, //随机字符串，长度为32个字符以下
-							// 	orderInfo: data.orderInfo, //订单数据
-							// 	package: data.package,
-							// 	signType: data.signType,
-							// 	paySign: data.paySign,
-							// 	success: function(res) {
-							// 		_this.tui.toast("支付成功，我们将尽快为您发货。")
-							// 		setTimeout(function() {
-							// 			uni.redirectTo({
-							// 				url: getApp().globalData.ordersPage + '?tabIndex=2'
-							// 			})
-							// 			// 	window.location = _this.tui.interfaceUrl() + "/#//pages/extend-view/mall-extend/myOrder/myOrder?currentTab=2";           
-							// 		}, 500)
-							// 		console.log('success:' + JSON.stringify(res));
-							// 	},
-							// 	fail: function(err) {
-							// 		console.log('fail:' + JSON.stringify(err));
-							// 	}
-							// });
-						
-						},
+								.then(() => {});
+						}
+					});
+				});
+				// 仅作为示例，非真实参数信息。
+				// uni.requestPayment({
+				// 	provider: 'wxpay',
+				// 	timeStamp: data.timeStamp,
+				// 	nonceStr: data.nonceStr, //随机字符串，长度为32个字符以下
+				// 	orderInfo: data.orderInfo, //订单数据
+				// 	package: data.package,
+				// 	signType: data.signType,
+				// 	paySign: data.paySign,
+				// 	success: function(res) {
+				// 		_this.tui.toast("支付成功，我们将尽快为您发货。")
+				// 		setTimeout(function() {
+				// 			uni.redirectTo({
+				// 				url: getApp().globalData.ordersPage + '?tabIndex=2'
+				// 			})
+				// 			// 	window.location = _this.tui.interfaceUrl() + "/#//pages/extend-view/mall-extend/myOrder/myOrder?currentTab=2";           
+				// 		}, 500)
+				// 		console.log('success:' + JSON.stringify(res));
+				// 	},
+				// 	fail: function(err) {
+				// 		console.log('fail:' + JSON.stringify(err));
+				// 	}
+				// });
+
+			},
 			loadMore(e) {
 				this.loadData();
 			},
-			
+
 			refreshData() {
 				if (this.isLoading) {
 					return;

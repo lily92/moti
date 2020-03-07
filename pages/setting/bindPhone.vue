@@ -18,12 +18,6 @@
 					</view>
 				</view>
 			</view>
-			<view class="label color9">
-				登录密码
-			</view>
-			<view class="bgf9">
-				<input type="password" v-model="password" value="" placeholder="请输入登录密码" class="fon28  bin-txt" />
-			</view>
 			<button form-type="submit" class="btns btns-tijiao colorf">确定</button>
 
 		</form>

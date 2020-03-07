@@ -9,9 +9,9 @@
 					<view class="fon60 keti-fon">
 						￥1000
 					</view>
-					<view class="tixain-btn positionb colorf  text-center">
+					<navigator url="../cashWithdrawal/cashWithdrawal" class="tixain-btn positionb colorf  text-center">
 						提现
-					</view>
+					</navigator>
 				</view>
 			</view>
 		

@@ -111,7 +111,6 @@
 				_this.tui.request('/mine/infoList', param).then(function(data) {
 					_this.loadding = false;
 					if (data.stat == 1) {
-
 						_this.pageIndex = data.data.curpage
 						_this.pullUpOn = data.data.more;
 						_this.infoList = _this.infoList ? _this.infoList.concat(data.data.list) : data.data.list;

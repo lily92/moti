@@ -133,7 +133,9 @@
             "style" : {
 				"navigationBarTitleText": "排名",
 				"navigationBarBackgroundColor": "#f7b364",
-				"navigationBarTextStyle": "black"
+				"navigationBarTextStyle": "black",
+				"navigationStyle":"custom"
+				
 			}
 			
         },{

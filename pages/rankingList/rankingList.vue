@@ -1,5 +1,6 @@
 <template>
 	<view>
+		<uni-nav-bar color="#ffffff" background-color="#007AFF" :status-bar="true" left-text="" title="排名" @clickLeft="back" />
 		<view class="">
 			<image src="../../static/images/rank/r-title-bg.png" mode="widthFix" class="w100"></image>
 			<view class="w100 text-center">
@@ -80,7 +81,11 @@
 </template>
 
 <script>
+	import uniNavBar from '@/components/uni-nav-bar/uni-nav-bar.vue'
 	export default {
+		components:{
+			uniNavBar
+		},
 		data() {
 			return {
 				list: [{

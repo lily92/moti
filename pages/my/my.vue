@@ -3,10 +3,10 @@
 		<uni-nav-bar color="#ffffff" background-color="#007AFF" :status-bar="true" left-text="" title="我的" @clickLeft="back" />
 		<view class="top-bg">
 			<view class="flex flex-just-between flex-al-center">
-				<view class="my-icon">
+				<navigator url="../personalData/personalData" class="my-icon">
 					<image src="../../static/images/icon-fenlei.jpg" mode="widthFix" class="w100"></image>
-				</view>
-				<view class="my-con">
+				</navigator>
+				<navigator url="../personalData/personalData"  class="my-con">
 					<view class="">
 						<text class="colorf fon32">尼古拉斯赵四</text>
 						<text class="my-desc ">合伙人</text>
@@ -14,14 +14,14 @@
 					<view class=" colorf">
 						ID :158461
 					</view>
-				</view>
-				<view class="my-info">
+				</navigator>
+				<navigator class="my-info" url="../myInfo/myInfo">
 					<view class="info-icon positionr">
 						<view class="info-read">
 							16
 						</view>
 					</view>
-				</view>
+				</navigator>
 			</view>
 		</view>
 
@@ -57,9 +57,10 @@
 					</navigator>
 				</view>
 			</view>
-			
+			<navigator url=""></navigator>
 			<!-- end 个人中心 -->
 		</view>
+		<navigator url=""></navigator>
 	</view>
 </template>
 
@@ -88,7 +89,7 @@
 					{
 						"icon":"../../static/images/my/my-icon1.png",
 						"title":"我要下单",
-						"link":"../creatOrder/creatOrder"
+						"link":"../buyingSuits/buyingSuits"
 					},	{
 						"icon":"../../static/images/my/my-icon2.png",
 						"title":"我的订单（会员）",
@@ -104,7 +105,7 @@
 					},	{
 						"icon":"../../static/images/my/my-icon5.png",
 						"title":"我的会员",
-						"link":"../bindWechat/bindWechat"
+						"link":"../myTeam/myTeam"
 					},	{
 						"icon":"../../static/images/my/my-icon6.png",
 						"title":"我的账户",
@@ -124,7 +125,7 @@
 					},{
 						"icon":"../../static/images/my/my-icon10.png",
 						"title":"推荐榜",
-						"link":"../bindWechat/bindWechat"
+						"link":"../rankingList/rankingList"
 					},{
 						"icon":"../../static/images/my/my-icon11.png",
 						"title":"返单榜",

@@ -40,14 +40,14 @@
 						{{item.productDesc}}
 					</view>
 				</view>
-				<view class="suit-btn">
-					<image src="../../static/images/suit-btn.png" mode="widthFix" class="w100"></image>
-				</view>
+				<navigator class="suit-btn" :url="'../productDetail/productDetail?id='+item.id">
+					<image src="../../static/images/btn-buy.png" mode="widthFix" class="w100"></image>
+				</navigator>
 			</view>
 		</view>
-		<view class="cat-btn colorf">
+		<navigator class="cat-btn colorf" url="../shopCart/shopCart">
 			+ 1035
-		</view>
+		</navigator>
 		
 		<view class="masters flex flex-al-center flex-just-center"  v-if="isAgent">
 			<view class="box ">

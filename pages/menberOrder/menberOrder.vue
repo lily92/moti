@@ -9,7 +9,7 @@
 						<text class="uni-tab-item-title" :class="tabIndex==index ? 'uni-tab-item-title-active' : ''">{{tab.name}}</text>
 					</view>
 				</view>
-			
+
 				<!-- <view class="scroll-view-indicator">
 					<view ref="underline" class="scroll-view-underline" :class="isTap ? 'scroll-view-animation':''" :style="{left: indicatorLineLeft + 'px', width: indicatorLineWidth + 'px'}"></view>
 				</view> -->
@@ -75,7 +75,7 @@
 			}
 		},
 		onLoad: function(options) {
-			this.tabIndex=options.tabIndex||0;
+			this.tabIndex = options.tabIndex || 0;
 			console.log(this.tabIndex)
 		},
 		onReady() {
@@ -100,6 +100,7 @@
 			this.getTabbarItemsSize();
 		},
 		methods: {
+			
 			ontabtap(e) {
 				let index = e.target.dataset.current || e.currentTarget.dataset.current;
 				//let offsetIndex = this._touchTabIndex = Math.abs(index - this._lastTabIndex) > 1;
@@ -266,11 +267,22 @@
 		min-height: 100%;
 		display: flex;
 	}
-	.bgf{ background: #fff; padding-top: 10rpx;}
-	.tabs{background: #f9f9f9;}
-	.tab-box{ margin-bottom: 60rpx;}
+
+	.bgf {
+		background: #fff;
+		padding-top: 10rpx;
+	}
+
+	.tabs {
+		background: #f9f9f9;
+	}
+
+	.tab-box {
+		margin-bottom: 60rpx;
+	}
+
 	.uni-tab-item {
-		width:25%;
+		width: 25%;
 	}
 
 	.swiper-item {
@@ -288,5 +300,4 @@
 		right: 0;
 		bottom: 0;
 	}
-	
 </style>

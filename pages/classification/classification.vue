@@ -14,7 +14,7 @@
 						<view class="class-item">
 							<view class="class-name color0">{{item}}</view>
 							<view class="g-container">
-								<view class="g-box" @tap.stop="productList" data-key="产品名称产品">
+								<view class="g-box" @tap.stop="productList" data-id="123">
 									<image src="../../static/images/icon-fenlei.jpg" class="g-image" />
 									<view class="g-title">
 										<view class="fon28 line2">
@@ -25,7 +25,7 @@
 										</view>
 									</view>
 								</view>
-								<view class="g-box" @tap.stop="productList" data-key="好物优选">
+								<view class="g-box" @tap.stop="productList" data-id="123">
 									<image src="../../static/images/icon-fenlei.jpg" class="g-image" />
 									<view class="g-title">
 										<view class="fon28 line2">
@@ -36,7 +36,7 @@
 										</view>
 									</view>
 								</view>
-								<view class="g-box" @tap.stop="productList" data-key="iphone X">
+								<view class="g-box" @tap.stop="productList" data-id="1456">
 									<image src="../../static/images/icon-fenlei.jpg" class="g-image" />
 									<view class="g-title">
 										<view class="fon28 line2">
@@ -47,7 +47,7 @@
 										</view>
 									</view>
 								</view>
-								<view class="g-box" @tap.stop="productList" data-key="电动牙刷" v-if="index%2===0">
+								<view class="g-box" @tap.stop="productList" data-id="电动牙刷" v-if="index%2===0">
 									<image src="../../static/images/product/44.jpg" class="g-image" />
 									<view class="g-title">
 										<view class="fon28 line2">
@@ -64,35 +64,35 @@
 						<view class="class-item">
 							<view class="class-name color0">专场推荐{{index+1}}</view>
 							<view class="g-container">
-								<view class="g-box" @tap.stop="productList" data-key="笔记本" v-if="index%2===0">
+								<view class="g-box" @tap.stop="productList" data-id="笔记本" v-if="index%2===0">
 									<image src="../../static/images/product/11.jpg" class="g-image" />
 									<view class="g-title">笔记本</view>
 								</view>
-								<view class="g-box" @tap.stop="productList" data-key="电水壶">
+								<view class="g-box" @tap.stop="productList" data-id="电水壶">
 									<image src="../../static/images/product/22.jpg" class="g-image" />
 									<view class="g-title">电水壶</view>
 								</view>
-								<view class="g-box" @tap.stop="productList" data-key="iphone X">
+								<view class="g-box" @tap.stop="productList" data-id="iphone X">
 									<image src="../../static/images/product/33.jpg" class="g-image" />
 									<view class="g-title">iphone X</view>
 								</view>
-								<view class="g-box" @tap.stop="productList" data-key="电动牙刷">
+								<view class="g-box" @tap.stop="productList" data-id="电动牙刷">
 									<image src="../../static/images/product/44.jpg" class="g-image" />
 									<view class="g-title">电动牙刷</view>
 								</view>
-								<view class="g-box" @tap.stop="productList" data-key="抽纸">
+								<view class="g-box" @tap.stop="productList" data-id="抽纸">
 									<image src="../../static/images/product/55.jpg" class="g-image" />
 									<view class="g-title">抽纸</view>
 								</view>
-								<view class="g-box" @tap.stop="productList" data-key="笔记本">
+								<view class="g-box" @tap.stop="productList" data-id="笔记本">
 									<image src="../../static/images/product/11.jpg" class="g-image" />
 									<view class="g-title">笔记本</view>
 								</view>
-								<view class="g-box" @tap.stop="productList" data-key="电水壶">
+								<view class="g-box" @tap.stop="productList" data-id="电水壶">
 									<image src="../../static/images/product/22.jpg" class="g-image" />
 									<view class="g-title">电水壶</view>
 								</view>
-								<view class="g-box" @tap.stop="productList" data-key="iphone X" v-if="index%2===0">
+								<view class="g-box" @tap.stop="productList" data-id="iphone X" v-if="index%2===0">
 									<image src="../../static/images/product/33.jpg" class="g-image" />
 									<view class="g-title">iphone X</view>
 								</view>
@@ -102,27 +102,27 @@
 						<view class="class-item">
 							<view class="class-name">专场推荐{{index+1}}</view>
 							<view class="g-container">
-								<view class="g-box" @tap.stop="productList" data-key="iphone X">
+								<view class="g-box" @tap.stop="productList" data-id="iphone X">
 									<image src="../../static/images/product/33.jpg" class="g-image" />
 									<view class="g-title">iphone X</view>
 								</view>
-								<view class="g-box" @tap.stop="productList" data-key="电动牙刷">
+								<view class="g-box" @tap.stop="productList" data-id="电动牙刷">
 									<image src="../../static/images/product/44.jpg" class="g-image" />
 									<view class="g-title">电动牙刷</view>
 								</view>
-								<view class="g-box" @tap.stop="productList" data-key="抽纸">
+								<view class="g-box" @tap.stop="productList" data-id="抽纸">
 									<image src="../../static/images/product/55.jpg" class="g-image" />
 									<view class="g-title">抽纸</view>
 								</view>
-								<view class="g-box" @tap.stop="productList" data-key="笔记本">
+								<view class="g-box" @tap.stop="productList" data-id="笔记本">
 									<image src="../../static/images/product/11.jpg" class="g-image" />
 									<view class="g-title">笔记本</view>
 								</view>
-								<view class="g-box" @tap.stop="productList" data-key="电水壶">
+								<view class="g-box" @tap.stop="productList" data-id="电水壶">
 									<image src="../../static/images/product/22.jpg" class="g-image" />
 									<view class="g-title">电水壶</view>
 								</view>
-								<view class="g-box" @tap.stop="productList" data-key="iphone X" v-if="index%2===0">
+								<view class="g-box" @tap.stop="productList" data-id="iphone X" v-if="index%2===0">
 									<image src="../../static/images/product/33.jpg" class="g-image" />
 									<view class="g-title">iphone X</view>
 								</view>
@@ -194,10 +194,10 @@
 				})
 			},
 			productList(e) {
-				let key = e.currentTarget.dataset.key;
-				// uni.navigateTo({
-				// 	url: '../extend-view/productList/productList?searchKey=' + key
-				// })
+				let id = e.currentTarget.dataset.id;
+				uni.navigateTo({
+					url: '../productDetail/productDetail?id='+id
+				})
 			},
 			search: function() {
 				uni.navigateTo({

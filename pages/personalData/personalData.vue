@@ -156,7 +156,7 @@
 			},
 			editAddess() {
 				uni.navigateTo({
-					url: "../address/addAdress"
+					url: "../address/selectAdress"
 				})
 			}
 		}

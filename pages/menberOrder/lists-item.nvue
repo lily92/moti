@@ -10,7 +10,7 @@
 					<view class=" flex flex-al-center">
 						<text>微信号：</text>
 						<text>{{newsItem.od_wechat}}</text>
-						<image src="../../static/images/icon-copy.png" mode="widthFix" class="copy-icon"></image>
+						<image src="../../static/images/icon-copy.png" mode="widthFix" class="copy-icon" @tap="clipboard(newsItem.od_wechat)"></image>
 					</view>
 				</view>
 				<navigator class=" fon28 color0">
@@ -114,6 +114,9 @@
 			console.log(this.typeid)
 		},
 		methods: {
+			clipboard(data){
+				this.$emit('clipboard',data);
+			},
 			click() {
 				this.$emit('click');
 			},
