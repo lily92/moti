@@ -1,8 +1,10 @@
 <template>
 	<view>
-		<uni-nav-bar color="#ffffff" background-color="#007AFF" :status-bar="true" left-text="" title="排名" @clickLeft="back" />
+		<uni-nav-bar color="#000" background-color="#007AFF" :status-bar="true" left-text="" title="排名" @clickLeft="back" left-icon="arrowleft" :bg='bgrank'   />
 		<view class="">
-			<image src="../../static/images/rank/r-title-bg.png" mode="widthFix" class="w100"></image>
+			<view >
+				<image src="../../static/images/rank/2.jpg" mode="widthFix" class="w100"></image>
+			</view>
 			<view class="w100 text-center">
 				<image src="../../static/images/rank/r-title.png" mode="widthFix" class="title"></image>
 			</view>
@@ -88,6 +90,7 @@
 		},
 		data() {
 			return {
+				bgrank:'bgrank',
 				list: [{
 					"name": "西建科",
 					"rank": 1,
@@ -150,6 +153,13 @@
 					"img": ""
 				}]
 			};
+		},
+		methods:{
+			back() {
+				uni.navigateBack({
+					delta: 1
+				})
+			},
 		}
 
 	}
@@ -164,6 +174,7 @@
 		position: relative;
 		z-index: 2;
 		margin-top: -105rpx;
+		margin-bottom: 50rpx;
 	}
 
 	.box {
@@ -248,7 +259,7 @@
 	}
 
 	.size {
-		padding: 30rpx 0 0 0;
+		padding: 20rpx 0 0 0;
 	}
 
 	.bg-line {
@@ -308,4 +319,5 @@
 		border-bottom: 1px solid rgba(255, 172, 178, .2);
 		padding: 30rpx 0;
 	}
+	.bg2{ height:208rpx; width: 100%; background: url(~@/static/images/rank/2.jpg) no-repeat  center; background-size: 100%;}
 </style>

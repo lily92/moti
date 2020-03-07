@@ -1,7 +1,7 @@
 <template>
 	<view class="uni-navbar">
-		<view :class="{ 'uni-navbar--fixed': fixed, 'uni-navbar--shadow': shadow, 'uni-navbar--border': border }" 
-		 class="uni-navbar__content">
+		<view :class="{ 'uni-navbar--fixed': fixed, 'uni-navbar--shadow': shadow, 'uni-navbar--border': border,'bg':bg}" 
+		 class="uni-navbar__content" >
 			<uni-status-bar v-if="statusBar" />
 			<view :style="{ color: color }" class="uni-navbar__header uni-navbar__content_view">
 				<view @tap="onClickLeft" class="uni-navbar__header-btns uni-navbar__header-btns-left uni-navbar__content_view">
@@ -51,6 +51,7 @@
 			uniIcons
 		},
 		props: {
+			
 			title: {
 				type: String,
 				default: ""
@@ -94,6 +95,10 @@
 			border: {
 				type: [String, Boolean],
 				default: true
+			},
+			bg:{
+				type: String,
+				default: ""
 			}
 		},
         mounted() {
@@ -138,6 +143,10 @@
 		background: url(~@/static/images/top-bg.jpg) no-repeat center bottom #000;
 		background-size: 100%;
 		// background: #000;
+	}
+	.uni-navbar__content.bg{
+		background:url(~@/static/images/rank/1.jpg) no-repeat center ;
+		background-size: 100%;
 	}
 
 	.uni-navbar__content_view {
@@ -220,8 +229,8 @@
 	}
 
 	.uni-navbar--border {
-		border-bottom-width: 1rpx;
-		border-bottom-style: solid;
-		border-bottom-color: $uni-border-color;
+		// border-bottom-width: 1rpx;
+		// border-bottom-style: solid;
+		// border-bottom-color: $uni-border-color;
 	}
 </style>
