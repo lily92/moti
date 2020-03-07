@@ -5,11 +5,11 @@
     "versionName" : "1.4.1",
     "versionCode" : 109,
     "transformPx" : false,
-	"networkTimeout":{  
-		    "request":30000,
-			"uploadFile":60000,
-			"downloadFile":60000
-		},
+    "networkTimeout" : {
+        "request" : 30000,
+        "uploadFile" : 60000,
+        "downloadFile" : 60000
+    },
     /* 5+App特有相关 */
     "app-plus" : {
         "usingComponents" : true,
@@ -115,9 +115,10 @@
     "quickapp" : {},
     /* 小程序特有相关 */
     "mp-weixin" : {
-        "appid" : "wxe7a03aafe900cd02",
+        "appid" : "wx3dcb5f16fbb11a74",
         "setting" : {
-            "urlCheck" : false
+            "urlCheck" : false,
+            "es6" : true
         },
         "usingComponents" : true,
         "permission" : {
@@ -136,7 +137,7 @@
         "usingComponents" : true
     },
     "h5" : {
-        "title" : "时纯优选",
+        "title" : "魔体h5",
         "domain" : "https://h5.020713.cn",
         // "domain" : "http://mdxum3.natappfree.cc",
         "devServer" : {
@@ -144,7 +145,7 @@
             "disableHostCheck" : true,
             //"host": "192.168.0.100",//本地ip
             "host" : "127.0.0.1",
-           // "host" : "192.168.0.104",
+            // "host" : "192.168.0.104",
             //"host" : "192.168.1.101",
             "open" : true,
             "https" : false,
@@ -152,6 +153,7 @@
                 "/uniapp" : {
                     //"target" : "http://mdxum3.natappfree.cc/uniapp", //目标接口域名
                     "target" : "https://h5.020713.cn/uniapp", //目标接口域名
+
                     //"target" : "http://www.nvlang.coma/uniapp", //目标接口域名
                     "changeOrigin" : true, //是否跨域
                     "secure" : false, // 设置支持https协议的代理
@@ -162,7 +164,7 @@
             }
         },
         "router" : {
-            "base" : "/"
+            "base" : "/public/partime/motih5"
         }
     }
 }
