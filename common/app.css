@@ -23,7 +23,8 @@
 .border50 {
 	border-radius: 50%;
 }
-
+.margin-l30{ margin-left: 30rpx;}
+.margin-b20{ margin-bottom: 30rpx;}
 .pro-img {
 	width: 176rpx;
 	height: 176rpx;

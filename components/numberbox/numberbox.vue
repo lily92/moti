@@ -2,7 +2,7 @@
 	<view class="tui-numberbox-class tui-numberbox">
 		<view class="tui-numbox-icon tui-icon-reduce " :class="[disabled || min>=value?'tui-disabled':'']" @tap="reduce"
 		 :style="{color:iconColor,fontSize:iconSize+'rpx'}"></view>
-		<input type="number" v-model="inputValue" :disabled="disabled" @blur="blur" class="tui-num-input" :style="{color:color,fontSize:size+'rpx',background:bgcolor,height:height+'rpx',width:width+'rpx'}" />
+		<input type="number" v-model="inputValue" :disabled="disabled" @blur="blur" class="tui-num-input" :style="{color:color,fontSize:size+'rpx',background:bgcolor,height:height+'rpx',width:width+'rpx'}"  :class='borders'/>
 		<view class="tui-numbox-icon tui-icon-plus" :class="[disabled || value>=max?'tui-disabled':'']" @tap="plus" :style="{color:iconColor,fontSize:iconSize+'rpx'}"></view>
 	</view>
 </template>
@@ -72,6 +72,10 @@
 			index: {
 				type: Number,
 				default: 0
+			},
+			borders:{
+				type: String,
+				default: 'borderstb'
 			}
 		},
 		created() {
@@ -202,9 +206,11 @@
 		text-align: center;
 		/* margin: 0 12rpx; */
 		font-weight: 400;
-		border-top: 1px solid #eaeaea;
-		border-bottom: 1px solid #eaeaea;
+	/* 	border-top: 1px solid #eaeaea;
+		border-bottom: 1px solid #eaeaea; */
 	}
+	.borders.tui-num-input{  border-left: 1px solid #e4e4e4; border-right: 1px solid #e4e4e4;}
+	.borderstb.tui-num-input{  border-top: 1px solid #e4e4e4; border-bottom: 1px solid #e4e4e4;}
 
 	.tui-disabled {
 		color: #ededed !important;

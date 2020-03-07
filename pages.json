@@ -206,6 +206,12 @@
 				"navigationBarTitleText": "下载内容"
 			}
         }
+        ,{
+            "path" : "pages/productDetail/productDetail",
+            "style" : {
+				"navigationBarTitleText": "商品详情"
+			}
+        }
     ],
 	"globalStyle": {
 		"backgroundTextStyle": "dark",

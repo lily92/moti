@@ -9,14 +9,17 @@
 			</view>
 		</view>
 		<!--star  banner -->
+		
+		<video autoplay="true"   id="myVideo" src="https://img.cdn.aliyun.dcloud.net.cn/guide/uniapp/%E7%AC%AC1%E8%AE%B2%EF%BC%88uni-app%E4%BA%A7%E5%93%81%E4%BB%8B%E7%BB%8D%EF%BC%89-%20DCloud%E5%AE%98%E6%96%B9%E8%A7%86%E9%A2%91%E6%95%99%E7%A8%8B@20181126.mp4"
+		 @error="videoErrorCallback" controls poster="../../static/images/index-banner.jpg"></video>
 		<view class="banner">
 			<swiper class="swiper" :indicator-color='color' :indicator-dots="indicatorDots" :autoplay="autoplay" :interval="interval"
 			 :duration="duration" :indicator-active-color='color' :loop='loop'>
 				<swiper-item>
 					<view class="swiper-item  positionr ">
-						<image src="../../static/images/index-banner.jpg" mode="widthFix" class="w100 visible-hidden"></image>
-						<video class="video" src="http://wxsnsdy.tc.qq.com/105/20210/snsdyvideodownload?filekey=30280201010421301f0201690402534804102ca905ce620b1241b726bc41dcff44e00204012882540400&bizid=1023&hy=SH&fileparam=302c020101042530230204136ffd93020457e3c4ff02024ef202031e8d7f02030f42400204045a320a0201000400"
-						 poster="../../static/images/index-banner.jpg"></video>
+						<image src="../../static/images/index-banner.jpg" mode="widthFix" class="w100 "></image>
+						<!-- <video id="myVideo" src="https://img.cdn.aliyun.dcloud.net.cn/guide/uniapp/%E7%AC%AC1%E8%AE%B2%EF%BC%88uni-app%E4%BA%A7%E5%93%81%E4%BB%8B%E7%BB%8D%EF%BC%89-%20DCloud%E5%AE%98%E6%96%B9%E8%A7%86%E9%A2%91%E6%95%99%E7%A8%8B@20181126.mp4"
+						 @error="videoErrorCallback" controls poster="../../static/images/index-banner.jpg"></video> -->
 					</view>
 				</swiper-item>
 				<swiper-item>
@@ -67,10 +70,10 @@
 			</view>
 			<view class="list-item">
 				<view v-for="(item,index) in proList" :key="index" class="flex list-items flex-just-between">
-					<view class="order-img">
+					<view class="order-img" @tap="goDetail(item.id)">
 						<image src="../../static/images/icon-fenlei.jpg" mode="widthFix" class=""></image>
 					</view>
-					<view class="order-con w360 flex  ">
+					<view class="order-con w360 flex" @tap="goDetail(item.id)">
 						<view class="fon28 w100">
 							身材管理魔体仪
 						</view>
@@ -181,7 +184,19 @@
 		mounted() {
 			// this.getData()
 		},
+		onReady: function(res) {
+			// #ifndef MP-ALIPAY
+			this.videoContext = uni.createVideoContext('myVideo')
+			// #endif
+		},
 		methods: {
+			videoErrorCallback(e) {
+				console.log('播放错误');
+				// uni.showModal({
+				// 	content: e.target.errMsg,
+				// 	showCancel: false
+				// })
+			},
 			getData: function() {
 				var _this = this
 				if (_this.loadding == true) {
@@ -203,6 +218,18 @@
 					}
 				});
 			},
+			goDetail(id){
+				uni.navigateTo({
+					url: '../productDetail/productDetail?id='+id,
+					success: res => {
+						console.log('success')
+					},
+					fail: () => {
+						console.log('fail')
+					},
+					complete: () => {}
+				});
+			}
 		},
 		/**
 		 * 页面上拉触底事件的处理函数
@@ -213,7 +240,7 @@
 			if (this.pageIndex == 3) {
 				this.loadding = false;
 				this.pullUpOn = false;
-				
+
 			} else {
 				this.proList = this.proList.concat(this.loadData);
 				this.pageIndex = this.pageIndex + 1;
@@ -264,7 +291,7 @@
 	}
 
 	.w330 {
-		width: 310rpx;
+		width: 330rpx;
 		height: 300rpx;
 		margin-bottom: 30rpx;
 	}
@@ -283,6 +310,7 @@
 		background: #fff;
 		text-decoration: underline;
 		line-height: 1.8;
+		text-decoration-color: #e7b167;
 	}
 
 	.index-list {
@@ -290,7 +318,7 @@
 	}
 
 	.w360 {
-		width: 360rpx;
+		width:425rpx;
 		margin: 0 20rpx;
 	}
 

@@ -195,9 +195,9 @@
 			},
 			productList(e) {
 				let key = e.currentTarget.dataset.key;
-				uni.navigateTo({
-					url: '../extend-view/productList/productList?searchKey=' + key
-				})
+				// uni.navigateTo({
+				// 	url: '../extend-view/productList/productList?searchKey=' + key
+				// })
 			},
 			search: function() {
 				uni.navigateTo({
