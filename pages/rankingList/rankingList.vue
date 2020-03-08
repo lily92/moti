@@ -1,8 +1,9 @@
 <template>
-	<view>
-		<uni-nav-bar color="#000" background-color="#007AFF" :status-bar="true" left-text="" title="排名" @clickLeft="back" left-icon="arrowleft" :bg='bgrank'   />
+	<view class="bg-org">
+		<uni-nav-bar color="#000" background-color="#007AFF" :status-bar="true" title="排名" @clickLeft="back" left-icon="arrowleft"
+		 :bg='bgrank' fixed="true" />
 		<view class="">
-			<view >
+			<view>
 				<image src="../../static/images/rank/2.jpg" mode="widthFix" class="w100"></image>
 			</view>
 			<view class="w100 text-center">
@@ -49,48 +50,49 @@
 			</view>
 		</view>
 
-		<!-- list 前十-->
-		<view class="list-top">
-			<view class="bg-line">
-				<view class="list-box ">
-					<view v-for="(item,index) in list" :key="index" v-if="item.rank>3" class="flex flex-al-center  flex-just-between list-item">
-						<view class=" fon36">
-							{{item.rank}}
-						</view>
-						<view class=" w72">
-							<image src="../../static/images/icon-fenlei.jpg" mode="widthFix" class="imgs w100"></image>
-						</view>
-						<view class="w250">
-							<view class="name1 fon32">
-								{{item.name}}
+		<view class="bg-org w100" style="height: 1100rpx;">
+			<!-- list 前十-->
+			<view class="list-top">
+				<view class="bg-line">
+					<view class="list-box ">
+						<view v-for="(item,index) in list" :key="index" v-if="item.rank>3" class="flex flex-al-center  flex-just-between list-item">
+							<view class=" fon36">
+								{{item.rank}}
 							</view>
-							<view class="precent-bg">
-								<view class="precent" :style="{ width: (item.precent)*100 + '%' }">
-									{{item.precent}}
+							<view class=" w72">
+								<image src="../../static/images/icon-fenlei.jpg" mode="widthFix" class="imgs w100"></image>
+							</view>
+							<view class="w250">
+								<view class="name1 fon32">
+									{{item.name}}
+								</view>
+								<view class="precent-bg">
+									<view class="precent" :style="{ width: (item.precent)*100 + '%' }">
+										{{item.precent}}
+									</view>
 								</view>
 							</view>
-						</view>
-						<view class="numbers fon36">
-							{{item.number}}单
+							<view class="numbers fon36">
+								{{item.number}}单
+							</view>
 						</view>
 					</view>
 				</view>
 			</view>
+			<!-- end list 前十 -->
 		</view>
-
-		<!-- end list 前十 -->
 	</view>
 </template>
 
 <script>
 	import uniNavBar from '@/components/uni-nav-bar/uni-nav-bar.vue'
 	export default {
-		components:{
+		components: {
 			uniNavBar
 		},
 		data() {
 			return {
-				bgrank:'bgrank',
+				bgrank: 'bgrank',
 				list: [{
 					"name": "西建科",
 					"rank": 1,
@@ -154,7 +156,7 @@
 				}]
 			};
 		},
-		methods:{
+		methods: {
 			back() {
 				uni.navigateBack({
 					delta: 1
@@ -169,6 +171,11 @@
 	page {
 		background: #f7b364;
 	}
+
+	// .bg-org {
+	// 	background: #f7b364;
+	// }
+
 	.title {
 		width: 627rpx;
 		position: relative;
@@ -269,6 +276,7 @@
 		border-radius: 25rpx;
 		border: solid 12rpx #ffc17a;
 		margin: 30rpx auto 0;
+		box-sizing: border-box;
 	}
 
 	.list-box {
@@ -280,6 +288,7 @@
 		margin: 10rpx auto 20rpx;
 		position: relative;
 		padding: 20rpx 30rpx 30rpx;
+		box-sizing: border-box;
 	}
 
 	.w72 {
@@ -293,6 +302,7 @@
 
 	.w250 {
 		width: 250rpx;
+		box-sizing: border-box;
 	}
 
 	.precent-bg {
@@ -319,5 +329,11 @@
 		border-bottom: 1px solid rgba(255, 172, 178, .2);
 		padding: 30rpx 0;
 	}
-	.bg2{ height:208rpx; width: 100%; background: url(~@/static/images/rank/2.jpg) no-repeat  center; background-size: 100%;}
+
+	.bg2 {
+		height: 208rpx;
+		width: 100%;
+		background: url(~@/static/images/rank/2.jpg) no-repeat center;
+		background-size: 100%;
+	}
 </style>

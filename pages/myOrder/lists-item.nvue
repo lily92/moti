@@ -112,8 +112,8 @@
 			}
 		},
 		mounted() {
-			console.log(this.newsItem)
-			console.log(this.typeid)
+			// console.log(this.newsItem)
+			// console.log(this.typeid)
 		},
 		methods: {
 			click() {

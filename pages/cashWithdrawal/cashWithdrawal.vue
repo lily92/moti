@@ -1,14 +1,18 @@
 <template>
 	<view class="padding-lf30 padding-t30">
-		<view class="">
-			<view class="keti fon26">
-				<view class="">
-					可提金额
-				</view>
-				<view class="fon60 keti-fon">
-					￥{{data.dl_fanli_recash}}1000
+		<view class=" ">
+			<view class="keti positionr">
+				<image src="../../static/images/tixain-bg.png" mode="widthFix" class="w100"></image>
+				<view class="fon26 positionb keti-con" >
+					<view class="">
+						可提金额
+					</view>
+					<view class="fon60 keti-fon">
+						￥1000
+					</view>
 				</view>
 			</view>
+			
 		<!-- 	<view class=" container flex-al-center shiji">
 				<view class=" flex flex-al-center">
 					<text class="fon48 color9">￥</text>
@@ -262,13 +266,12 @@
 	}
 
 	.keti {
-		padding: 60rpx;
-		background: #000;
 		border-radius: 20rpx;
 		color: #fff;
 		margin-bottom: 30rpx;
-		background: url(~@/static/images/tixain-bg.png) no-repeat center; background-size: 100%;
+		box-sizing: border-box;
 	}
+	.keti-con{ left:0; bottom: 0; right:0; top:0; padding: 60rpx;}
 
 	.shiji {
 		padding: 0 20rpx;

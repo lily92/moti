@@ -1,8 +1,9 @@
 <template>
 	<view>
-		<uni-nav-bar color="#ffffff" background-color="#007AFF" :status-bar="true" left-text="" title="我的" @clickLeft="back" />
-		<view class="top-bg">
-			<view class="flex flex-just-between flex-al-center">
+		<uni-nav-bar color="#ffffff" background-color="#007AFF" :status-bar="true" title="我的" fixed="ture"  />
+		<view class="top-bg positionr">
+			<image src="../../static/images/top-bg11.jpg" mode=" width" class="w100"></image>
+			<view class="flex flex-just-between flex-al-center positionb main">
 				<navigator url="../personalData/personalData" class="my-icon">
 					<image src="../../static/images/icon-fenlei.jpg" mode="widthFix" class="w100"></image>
 				</navigator>
@@ -140,13 +141,15 @@
 <style lang="scss" scoped>
 	.top-bg {
 		width: 100%;
-		height: 389rpx;
-		background: url(~@/static/images/top-bg1.jpg) no-repeat center #000;
+		height: 301rpx;
+		// background: url(~@/static/images/top-bg1.jpg) no-repeat center #000;
 		background-size: 100%;
-		margin-top: -4rpx;
 		position: relative;
-		padding: 60rpx 30rpx;
+		border-radius: 0 0 0 60rpx;
+		 overflow: hidden;
+		
 	}
+	.main{ left:0; top:0; width: 100%; height:100%;padding: 60rpx 30rpx; box-sizing: border-box;}
 
 	.my-icon {
 		width: 120rpx;
@@ -200,7 +203,7 @@
 	}
 
 	.index-item {
-		margin-top: -130rpx;
+		margin-top:-50rpx;
 		position: relative;
 
 		.item {
@@ -227,6 +230,7 @@
 		.top {
 			padding: 48rpx 20rpx 30rpx;
 			height: 130rpx;
+			box-sizing: border-box;
 		}
 
 		.bottom {

@@ -143,7 +143,7 @@
 
 
 	.order-item {
-		width: 100%;
+		
 		height: 239rpx;
 		background-color: #ffffff;
 		border-radius: 20rpx;

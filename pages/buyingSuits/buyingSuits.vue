@@ -51,7 +51,7 @@
 		
 		<view class="masters flex flex-al-center flex-just-center"  v-if="isAgent">
 			<view class="box ">
-				<view class="btn-close">
+				<view class="btn-close" @tap="closeAgent">
 					关闭按钮
 				</view>
 				<view class=" text-center">
@@ -87,7 +87,7 @@
 				pageIndex: 0,
 				loadding: false,
 				pullUpOn: true,
-				isAgent:false,
+				isAgent:true,
 				suitList: [{
 						"id": 12,
 						"picLink": "../../static/images/icon-fenlei.jpg",
@@ -148,6 +148,9 @@
 			// this.getData()
 		},
 		methods: {
+			closeAgent(){
+				this.isAgent = false
+			},
 			getData: function() {
 				var _this = this
 				if (_this.loadding == true) {
@@ -270,6 +273,7 @@
 		border-radius: 20rpx;
 		position: relative;
 		padding: 60rpx;
+		box-sizing: border-box;
 	}
 	.btn-close{ width: 53rpx; height:53rpx; background: url(~@/static/images/suit-btn.png) no-repeat center;  background-size: contain;  position: absolute; top:-53rpx; right:30rpx; font-size: 0;}
 	.w286{ width: 286rpx;}

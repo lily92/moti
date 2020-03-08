@@ -43,7 +43,7 @@
 	import {
 		friendlyDate
 	} from '@/common/util.js';
-	var wx = require('jweixin-module')
+	 // var wx = require('jweixin-module')
 	import uniList from '@/components/list/uni-list.vue';
 	import uniCell from '@/components/list/uni-cell.vue';
 	import uniRefresh from '@/components/list/uni-refresh.vue';

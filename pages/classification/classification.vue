@@ -14,121 +14,19 @@
 						<view class="class-item">
 							<view class="class-name color0">{{item}}</view>
 							<view class="g-container">
-								<view class="g-box" @tap.stop="productList" data-id="123">
-									<image src="../../static/images/icon-fenlei.jpg" class="g-image" />
+								<view v-for="(item,index) in productLists" :key="index"  class="g-box" @tap.stop="productList" :data-id="item.id">
+									<image :src="item.img" class="g-image" />
 									<view class="g-title">
 										<view class="fon28 line2">
-											产品名称产品
+											{{item.productName}}
 										</view>
 										<view class="fon32 color-org">
-											￥158
-										</view>
-									</view>
-								</view>
-								<view class="g-box" @tap.stop="productList" data-id="123">
-									<image src="../../static/images/icon-fenlei.jpg" class="g-image" />
-									<view class="g-title">
-										<view class="fon28 line2">
-											好物优选
-										</view>
-										<view class="fon32 color-org">
-											￥58
-										</view>
-									</view>
-								</view>
-								<view class="g-box" @tap.stop="productList" data-id="1456">
-									<image src="../../static/images/icon-fenlei.jpg" class="g-image" />
-									<view class="g-title">
-										<view class="fon28 line2">
-											iphone X
-										</view>
-										<view class="fon32 color-org">
-											￥58
-										</view>
-									</view>
-								</view>
-								<view class="g-box" @tap.stop="productList" data-id="电动牙刷" v-if="index%2===0">
-									<image src="../../static/images/product/44.jpg" class="g-image" />
-									<view class="g-title">
-										<view class="fon28 line2">
-											电动牙刷
-										</view>
-										<view class="fon32 color-org">
-											￥58
+											￥{{item.price}}
 										</view>
 									</view>
 								</view>
 							</view>
 						</view>
-
-						<view class="class-item">
-							<view class="class-name color0">专场推荐{{index+1}}</view>
-							<view class="g-container">
-								<view class="g-box" @tap.stop="productList" data-id="笔记本" v-if="index%2===0">
-									<image src="../../static/images/product/11.jpg" class="g-image" />
-									<view class="g-title">笔记本</view>
-								</view>
-								<view class="g-box" @tap.stop="productList" data-id="电水壶">
-									<image src="../../static/images/product/22.jpg" class="g-image" />
-									<view class="g-title">电水壶</view>
-								</view>
-								<view class="g-box" @tap.stop="productList" data-id="iphone X">
-									<image src="../../static/images/product/33.jpg" class="g-image" />
-									<view class="g-title">iphone X</view>
-								</view>
-								<view class="g-box" @tap.stop="productList" data-id="电动牙刷">
-									<image src="../../static/images/product/44.jpg" class="g-image" />
-									<view class="g-title">电动牙刷</view>
-								</view>
-								<view class="g-box" @tap.stop="productList" data-id="抽纸">
-									<image src="../../static/images/product/55.jpg" class="g-image" />
-									<view class="g-title">抽纸</view>
-								</view>
-								<view class="g-box" @tap.stop="productList" data-id="笔记本">
-									<image src="../../static/images/product/11.jpg" class="g-image" />
-									<view class="g-title">笔记本</view>
-								</view>
-								<view class="g-box" @tap.stop="productList" data-id="电水壶">
-									<image src="../../static/images/product/22.jpg" class="g-image" />
-									<view class="g-title">电水壶</view>
-								</view>
-								<view class="g-box" @tap.stop="productList" data-id="iphone X" v-if="index%2===0">
-									<image src="../../static/images/product/33.jpg" class="g-image" />
-									<view class="g-title">iphone X</view>
-								</view>
-							</view>
-						</view>
-
-						<view class="class-item">
-							<view class="class-name">专场推荐{{index+1}}</view>
-							<view class="g-container">
-								<view class="g-box" @tap.stop="productList" data-id="iphone X">
-									<image src="../../static/images/product/33.jpg" class="g-image" />
-									<view class="g-title">iphone X</view>
-								</view>
-								<view class="g-box" @tap.stop="productList" data-id="电动牙刷">
-									<image src="../../static/images/product/44.jpg" class="g-image" />
-									<view class="g-title">电动牙刷</view>
-								</view>
-								<view class="g-box" @tap.stop="productList" data-id="抽纸">
-									<image src="../../static/images/product/55.jpg" class="g-image" />
-									<view class="g-title">抽纸</view>
-								</view>
-								<view class="g-box" @tap.stop="productList" data-id="笔记本">
-									<image src="../../static/images/product/11.jpg" class="g-image" />
-									<view class="g-title">笔记本</view>
-								</view>
-								<view class="g-box" @tap.stop="productList" data-id="电水壶">
-									<image src="../../static/images/product/22.jpg" class="g-image" />
-									<view class="g-title">电水壶</view>
-								</view>
-								<view class="g-box" @tap.stop="productList" data-id="iphone X" v-if="index%2===0">
-									<image src="../../static/images/product/33.jpg" class="g-image" />
-									<view class="g-title">iphone X</view>
-								</view>
-							</view>
-						</view>
-
 					</view>
 				</view>
 				<!--内容部分 end 自定义可删除-->
@@ -143,6 +41,29 @@
 			return {
 				tabbar: ["经典魔体", "进口超市", "国际名牌", "奢侈品", "海囤全球", "男装", "女装", "男鞋", "女鞋", "钟表珠宝", "手机数码", "电脑办公", "家用电器", "玩具乐器",
 					"运动户外", "宠物生活", "特产馆"
+				],
+				productLists:[
+					{
+						'id':1002,
+						'img':"../../static/images/icon-fenlei.jpg",
+						'productName':'产品名称',
+						'price':'126'
+					},{
+						'id':1003,
+						'img':"../../static/images/icon-fenlei.jpg",
+						'productName':'产品名称',
+						'price':'126'
+					},{
+						'id':1004,
+						'img':"../../static/images/icon-fenlei.jpg",
+						'productName':'产品名称',
+						'price':'126'
+					},{
+						'id':1005,
+						'img':"../../static/images/icon-fenlei.jpg",
+						'productName':'产品名称',
+						'price':'126'
+					}
 				],
 				height:0, //scroll-view高度
 				top: 0,

@@ -208,8 +208,13 @@
 				this.indicatorLineWidth = width;
 			},
 			switchTab(index) {
+				console.log(this.pageList[index],'44')
+				console.log(this.pageList[index].dataList.length,'66')
+				
 				if (this.pageList[index].dataList.length === 0) {
 					this.loadTabData(index);
+				}else{
+					console.log('因为接口不可用，写死了dataList，所以不会请求接口')
 				}
 
 				if (this.tabIndex === index) {

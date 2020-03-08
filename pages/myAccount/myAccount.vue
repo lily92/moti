@@ -1,18 +1,22 @@
 <template>
 	<view>
 		<view class="padding-lf30 padding-t30">
-			<view class="">
-				<view class="keti fon26  positionr">
-					<view class="">
-						我的奖励
+			<view class=" positionr margin-b20">
+				<image src="../../static/images/tixain-bg.png" mode="widthFix" class="w100"></image>
+				<view class="positionb keti">
+					<view class=" fon26 ">
+						<view class="">
+							我的奖励
+						</view>
+						<view class="fon60 keti-fon">
+							￥1000
+						</view>
+						<navigator url="../cashWithdrawal/cashWithdrawal" class="tixain-btn positionb colorf  text-center">
+							提现
+						</navigator>
 					</view>
-					<view class="fon60 keti-fon">
-						￥1000
-					</view>
-					<navigator url="../cashWithdrawal/cashWithdrawal" class="tixain-btn positionb colorf  text-center">
-						提现
-					</navigator>
 				</view>
+			
 			</view>
 		
 		    <view v-for="(item,index) in list" :key="index" class="item flex flex-al-center flex-just-between">
@@ -64,12 +68,16 @@
 
 	.keti {
 		padding: 60rpx;
-		background: #000;
 		border-radius: 20rpx;
 		color: #fff;
 		margin-bottom: 30rpx;
-		background: url(~@/static/images/tixain-bg.png) no-repeat center;
-		background-size: 100%;
+		// background: url(~@/static/images/tixain-bg.png) no-repeat center;
+		// background-size: 100%;
+		left: 0;
+		top: 0;
+		right: 0;
+		 bottom: 0;
+		
 	}
 
 	.keti-fon {
@@ -110,6 +118,7 @@
 		border-radius: 20rpx;
 		margin-bottom: 30rpx;
 		padding: 60rpx;
+		box-sizing: border-box;
 	}
 	.iconw{ width:60rpx;}
 	.title{ padding: 8rpx 0;}

@@ -44,14 +44,14 @@
 	import {
 		friendlyDate
 	} from '@/common/util.js';
-var wx = require('jweixin-module') 
+// var wx = require('jweixin-module') 
 	import uniList from '@/components/list/uni-list.vue';
 	import uniCell from '@/components/list/uni-cell.vue';
 	import uniRefresh from '@/components/list/uni-refresh.vue';
 	import uniLoadMore from '@/components/list/uni-load-more.vue';
 	import noData from '@/components/list/nodata.nvue';
 	import newsItem from './lists-item.nvue';
-import tuiNomore from "@/components/nomore/nomore"
+    import tuiNomore from "@/components/nomore/nomore"
 	export default {
 		components: {
 			uniList,
@@ -70,7 +70,8 @@ import tuiNomore from "@/components/nomore/nomore"
 		},
 		data() {
 			return {
-				dataList: [
+				dataList:[],
+				dataList1: [
 					{
 						"od_orderid":'20180918124523',
 						"od_addtime_str":"2019-05-10 21：00：30",
@@ -167,8 +168,7 @@ import tuiNomore from "@/components/nomore/nomore"
 		},
 		created() {
 			this.pullTimer = null;
-		
-			console.log(this.typeid)
+			
 		},
 		methods: {
 			// 提货订单
@@ -183,7 +183,7 @@ import tuiNomore from "@/components/nomore/nomore"
 								page:_this.pageIndex+1,//页码			
 								currentTab:_this.typeid,//tab 索引				
 							}
-							      _this.tui.request( '/product/ordersList',param).then(function(data){
+							      _this.tui.request( '/api/news',param).then(function(data){
 							       _this.isLoading=false;
 									if(data.stat == 1){
 									

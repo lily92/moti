@@ -310,6 +310,7 @@ button::after {
 	padding-left: 10px;
 	padding-right: 10px;
 	text-align: center;
+	box-sizing: border-box;
 }
 
 .uni-tab-item-title {

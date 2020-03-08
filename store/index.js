@@ -6,7 +6,7 @@ Vue.use(Vuex)
 
 const store = new Vuex.Store({
 	state: {
-		version: "1.4.1",
+		version: "1.0.0",
 		isLogin: uni.getStorageSync("token") ? true : false,
 		isBind: uni.getStorageSync("isBind") ? true : false,//绑定账号密码
 		shopcart:uni.getStorageSync("shopcart") ||0,
@@ -23,7 +23,7 @@ const store = new Vuex.Store({
 		},
 	},
 	mutations: {
-		setLogin(state, login) {//登陆
+		setLogin(state, login) {//登录
 		state.isLogin = true;
 	},
 		logout(state) {//退出登录

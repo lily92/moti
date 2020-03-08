@@ -9,12 +9,20 @@
 			}
 		},
 		{
+		    "path" : "pages/myNews/myNews",
+		    "style" : {
+				"navigationBarTitleText": "我的订单"
+			}
+		},
+		
+		{
 			"path": "pages/myInfo/myInfo",
 			"style": {
 				"navigationBarTitleText": "我的消息",
 				"enablePullDownRefresh": true,
 				"onReachBottomDistance": 50,
-				"navigationBarBackgroundColor": "#F9F9F9"
+				"navigationBarBackgroundColor": "#F9F9F9",
+				"backgroundColor":"F9F9F9"
 			}
 		}
 	    ,{
@@ -134,7 +142,8 @@
 				"navigationBarTitleText": "排名",
 				"navigationBarBackgroundColor": "#f7b364",
 				"navigationBarTextStyle": "black",
-				"navigationStyle":"custom"
+				"navigationStyle":"custom",
+				"backgroundColor":"f7b364"
 				
 			}
 			
@@ -214,6 +223,7 @@
 				"navigationBarTitleText": "商品详情"
 			}
         }
+        
     ],
 	"globalStyle": {
 		"backgroundTextStyle": "dark",

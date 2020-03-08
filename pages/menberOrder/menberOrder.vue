@@ -1,7 +1,7 @@
 <template>
 	<view class="tabs">
 		<scroll-view ref="tabbar1" id="tab-bar" class="tab-bar bgf" :scroll="false" :scroll-x="true" :show-scrollbar="false"
-		 :scroll-into-view="scrollInto">
+		 :scroll-into-view="scrollInto" enable-flex='ture'>
 			<view style="flex-direction: column;">
 				<view style="flex-direction: row;">
 					<view class="uni-tab-item" v-for="(tab,index) in tabList" :key="tab.id" :id="tab.id" :ref="'tabitem'+index"
@@ -190,9 +190,9 @@
 				// #endif
 
 				// #ifdef APP-NVUE || H5 || MP-WEIXIN || MP-QQ
-				setTimeout(() => {
-					this.updateIndicator(this.tabListSize[this.tabIndex].left, this.tabListSize[this.tabIndex].width);
-				}, 100)
+				// setTimeout(() => {
+				// 	this.updateIndicator(this.tabListSize[this.tabIndex].left, this.tabListSize[this.tabIndex].width);
+				// }, 100)
 				// #endif
 			},
 			getElementSize(dom, ref, id) {

@@ -4,7 +4,7 @@
 			project_name:"时纯优选",
 			homePage:"/pages/index/index",//首页路径getApp().globalData.homePage
 			myPage:"/pages/index/index",//我的路径getApp().globalData.myPage
-			interfaceApi:"/uniapp",
+			interfaceApi:"",
 			interfacePlatform:"h5",
 			addressPage:"/pages/address/selectAdress",//选择收货地址路径getApp().globalData.addressPage
 			ordersPage:"/pages/myCloudStorage/deliveryOrder",//订单列表路径getApp().globalData.ordersPage
@@ -13,13 +13,13 @@
 			bindPage:"/pages/agencyInvitation/register",//绑定页面路径getApp().globalData.bindPage
 			// #ifdef MP
 			loginType:"wxapplogin",
-			interfaceUrl:'https://h5.020713.cn',//线上
+			interfaceUrl:'https://unidemo.dcloud.net.cn',//线上
 			// #endif
 			// #ifdef H5
 			//interfaceUrl:'http://www.nvlang.coma',//测试
 			loginType:"/pages/users/loginPhone",//登录
 			
-			interfaceUrl:'https://h5.020713.cn',//线上
+			interfaceUrl:'https://unidemo.dcloud.net.cn',//线上
 			// #endif
 			
 			appid:"wx4a0e975056cc1c6c",

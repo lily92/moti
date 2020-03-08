@@ -146,7 +146,7 @@
 	}
 	.uni-navbar__content.bg{
 		background:url(~@/static/images/rank/1.jpg) no-repeat center ;
-		background-size: 100%;
+		background-size:cover;
 	}
 
 	.uni-navbar__content_view {
